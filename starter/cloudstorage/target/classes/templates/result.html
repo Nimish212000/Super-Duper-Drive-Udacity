@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+
+        <title>Result</title>
+    </head>
+    <body class="p-3 mb-2 bg-warning text-black">
+        <div class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
+            <div  th:if="${not #strings.isEmpty(successMessage)}" class="alert alert-success fill-parent">
+                <h1 class="display-5"  id="success">Success</h1>
+                <span>Your changes were successfully saved. Click <a id="home-link" th:href="@{/home}">here</a> to continue.</span>
+            </div>
+
+<!--            <div th:if=th:if="${uploadError}" class="alert alert-danger fill-parent">-->
+<!--                <h1 class="display-5">Error</h1>-->
+<!--                <span th:text="${errorMessage}">Click <a id="errorupload-link" th:href="@{/home}">here</a> to continue.</span>-->
+<!--            </div>-->
+
+            <div th:if="${not #strings.isEmpty(errorMessage)}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error Message!</h1>
+                <span th:text="${errorMessage}">Example Error Message</span>
+                <span >Click <a id="errorhome-link" th:href="@{/home}" >here</a> to continue.</span>
+            </div>
+        </div>
+    </body>
+</html>
